@@ -29,15 +29,6 @@ def random_number_string(length=8):
     return ''.join([random.choice(string.digits) for _ in xrange(length)])
 
 
-def random_calendar_eid(length=32):
-    """
-    随机创建一个符合规则的eid
-    :param length:
-    :return:
-    """
-    return ''.join([random.choice('0123456789aAbBcCdDeEfF') for _ in xrange(length)])
-
-
 def random_string_and_number(length=32):
     """
     随机字母和数字混合字符串
