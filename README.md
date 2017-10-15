@@ -21,6 +21,7 @@ py-http-test-framework
 下载代码，将 `py_http_api_test` 文件夹复制到项目当中。
 
 然后和写普通单测 case 一样，测试类需要继承 HttpTest（from py_http_api_test.http_test import HttpTest），HttpTest 主要是初始化了一个 http_session（Http 会话） 对象和注入了配置文件，一个测试方法完成一个接口测试。
+
 因为框架基于 nose，所以还可以直接使用你喜欢的 nose 插件（比如说生成 HTML 报告等）。
 
 #### 示例（demo/contacts_api_test.py）：
@@ -102,7 +103,7 @@ env=demo/online.yaml
 
 这样就能使用 `nosetests -c demo/nose.cfg demo` 运行测试 case 了，运行结果：
 
-```SHEll
+```
 $ nosetests -c demo/nose.cfg demo
 获取access_token ... ok
 获取部门列表 ... ok
@@ -130,13 +131,11 @@ Demo 只展示了一种配置文件的注入方式，其实还有另外几种（
   
 其它
 ---
-##### 在 PyCharm 中使用：
+#### 在 PyCharm 中使用：
   1. 把默认的 test_runner 修改为 nosetests
-  
   ![](doc/test_runner.png)
   
   2. 增加一个 Nosetests 默认的运行参数，`-c` 指定 `nose.cfg` 的绝对路径（不能是相对路径，因为 test_runner 运行时不在当前项目路径），`nose.cfg` 中的 `env` 配置项也要使用绝对路径
-  
   ![](doc/run_config.png)
   
   3. 测试 case 目录及父目录需添加 `__init__.py` 文件，以使 test_runner 将测试 case 类识别为模块，这样就能单独运行某一个测试 case 了，右键选中，点击 Run 'Nosetests for xxx' 即可，比命令行更方便
