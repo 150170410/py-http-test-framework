@@ -1,4 +1,4 @@
-py-http-test-framework
+py_http_api_test
 ===
 
 [![Support Python Version](https://img.shields.io/badge/Python-2.7-brightgreen.svg)](https://www.python.org/)
@@ -18,7 +18,7 @@ py-http-test-framework
 
 使用方法
 ---
-下载代码，将 `py_http_api_test` 文件夹复制到项目当中。
+下载代码，将 `py_http_api_test` 文件夹（模块）复制到项目中。
 
 然后和写普通单测 case 一样，测试类需要继承 HttpTest（from py_http_api_test.http_test import HttpTest），HttpTest 主要是初始化了一个 http_session（Http 会话） 对象和注入了配置文件，一个测试方法完成一个接口测试。
 
@@ -143,3 +143,7 @@ Demo 只展示了一种配置文件的注入方式，其实还有另外几种（
 运行结果：
 
 ![](doc/ouput.png)
+
+#### tools 模块（py_http_api_test/tools.py）
+
+提供了常用的 mock 数据生成和 AES 加解密功能
