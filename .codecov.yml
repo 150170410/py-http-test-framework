@@ -1,19 +1,5 @@
-coverage:
-  precision: 2
-  round: down
-  range: 70...100
-
-  status:
-    # Learn more at http://docs.codecov.io/docs/codecov-yaml
-    project: true
-    patch: true
-    changes: false
-
-  ignore:
-    - "tests/*"
-    - "demo/*"
-    - "py_http_api_test/http_test.py"
-
-comment:
-  layout: "header, diff"
-  behavior: default
+# https://docs.codecov.io/docs/ignoring-paths
+ignore:
+  - "tests/*"
+  - "demo/*"
+  - "py_http_api_test/http_test.py"
