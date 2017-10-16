@@ -132,7 +132,7 @@ Demo 只展示了一种配置文件的注入方式，其实还有另外几种（
 其它
 ---
 #### 在 PyCharm 中使用：
-  1. 把默认的 test_runner 修改为 nosetests
+  1. 把默认的 test_runner 修改为 `Nosetests`
   ![](doc/test_runner.png)
   
   2. 增加一个 Nosetests 默认的运行参数，`-c` 指定 `nose.cfg` 的绝对路径（不能是相对路径，因为 test_runner 运行时不在当前项目路径），`nose.cfg` 中的 `env` 配置项也要使用绝对路径
@@ -140,9 +140,8 @@ Demo 只展示了一种配置文件的注入方式，其实还有另外几种（
   
   3. 测试 case 目录及父目录需添加 `__init__.py` 文件，以使 test_runner 将测试 case 类识别为模块，这样就能单独运行某一个测试 case 了（右键选中，点击 Run 'Nosetests for xxx' 即可），比命令行更方便
 
-运行结果：
-
-![](doc/ouput.png)
+  运行结果：
+  ![](doc/ouput.png)
 
 #### tools 模块（py_http_api_test/tools.py）
 
