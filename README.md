@@ -139,8 +139,8 @@ Demo 只展示了一种配置文件的注入方式，其实还有另外几种（
   ![](doc/run_config.png)
   
   3. 测试 case 目录及父目录需添加 `__init__.py` 文件，以使 test_runner 将测试 case 类识别为模块，这样就能单独运行某一个测试 case 了（右键选中，点击 Run 'Nosetests for xxx' 即可），比命令行更方便
-
-  运行结果：
+  
+  4. 运行结果：
   ![](doc/ouput.png)
 
 #### tools 模块（py_http_api_test/tools.py）
