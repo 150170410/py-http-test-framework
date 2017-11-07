@@ -16,9 +16,9 @@ class HttpTest(unittest.TestCase):
     """
     http接口测试类
     """
-    # 配置信息
+    # case配置信息(执行环境)
     config = None
-    # case执行环境（配置文件路径）
+    # case配置文件路径
     env = None
     # http会话对象
     http_session = HttpSession()
@@ -35,17 +35,20 @@ class HttpTest(unittest.TestCase):
             nose_cfg = None
             argvs = sys.argv[1:]
             for idx, arg in enumerate(argvs):
+                # 直接获取case配置文件路径
                 if '-env=' in arg:
                     env = arg.split('=')[-1]
+                    break
                 # 获取nose的配置文件
-                if '--config' in arg:
+                if '--config=' in arg:
                     nose_cfg = arg.split('=')[-1]
-                if '-c' in arg:
+                if '-c' == arg:
                     nose_cfg = argvs[idx + 1]
-            # 尝试从用户指定或者工作目录下的nose配置文件中获取环境参数
+            # 未获取到case配置文件路径，尝试从nose配置文件中获取
             nose_config_files = nose.config.all_config_files()
             if env is None and (nose_cfg is not None or len(nose_config_files) > 0):
                 if nose_cfg is None:
+                    # 用户未指定nose配置文件，则从系统全局配置文件中获取
                     nose_cfg = nose_config_files[-1]
                 if not os.path.isabs(nose_cfg):
                     nose_cfg = os.getcwd() + '/' + nose_cfg
@@ -55,7 +58,7 @@ class HttpTest(unittest.TestCase):
                     env = cf.get('others', 'env')
                 except ConfigParser.Error:
                     env = None
-            # 运行参数未传入而且有代码注入的配置文件路径
+            # 未获取到case配置文件路径，但测试类中有定义
             if env is None and self.env is not None:
                 env = self.env
 
